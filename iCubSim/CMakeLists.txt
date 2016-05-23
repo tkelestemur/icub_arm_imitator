@@ -14,8 +14,8 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ICUB_MODULE_PATH})
 
 include_directories(${ICUB_INCLUDE_DIRS} ${YARP_INCLUDE_DIRS})
 
-add_executable(simJointFollower simJointFollower.cpp)
-target_link_libraries(simJointFollower ${YARP_LIBRARIES})
+add_executable(jointFollower jointFollower.cpp)
+target_link_libraries(jointFollower ${YARP_LIBRARIES})
 
 # add_executable(cartesianTutorial cartesianTutorial.cpp)
 # target_link_libraries(cartesianTutorial ${YARP_LIBRARIES})

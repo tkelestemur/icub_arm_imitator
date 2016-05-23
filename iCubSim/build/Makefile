@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/tarik/ros_ws/src/icub_ros/iCubSim/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named simJointFollower
+# Target rules for targets named jointFollower
 
 # Build rule for target.
-simJointFollower: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 simJointFollower
-.PHONY : simJointFollower
+jointFollower: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 jointFollower
+.PHONY : jointFollower
 
 # fast build rule for target.
-simJointFollower/fast:
-	$(MAKE) -f CMakeFiles/simJointFollower.dir/build.make CMakeFiles/simJointFollower.dir/build
-.PHONY : simJointFollower/fast
+jointFollower/fast:
+	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/build
+.PHONY : jointFollower/fast
 
-simJointFollower.o: simJointFollower.cpp.o
+jointFollower.o: jointFollower.cpp.o
 
-.PHONY : simJointFollower.o
+.PHONY : jointFollower.o
 
 # target to build an object file
-simJointFollower.cpp.o:
-	$(MAKE) -f CMakeFiles/simJointFollower.dir/build.make CMakeFiles/simJointFollower.dir/simJointFollower.cpp.o
-.PHONY : simJointFollower.cpp.o
+jointFollower.cpp.o:
+	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/jointFollower.cpp.o
+.PHONY : jointFollower.cpp.o
 
-simJointFollower.i: simJointFollower.cpp.i
+jointFollower.i: jointFollower.cpp.i
 
-.PHONY : simJointFollower.i
+.PHONY : jointFollower.i
 
 # target to preprocess a source file
-simJointFollower.cpp.i:
-	$(MAKE) -f CMakeFiles/simJointFollower.dir/build.make CMakeFiles/simJointFollower.dir/simJointFollower.cpp.i
-.PHONY : simJointFollower.cpp.i
+jointFollower.cpp.i:
+	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/jointFollower.cpp.i
+.PHONY : jointFollower.cpp.i
 
-simJointFollower.s: simJointFollower.cpp.s
+jointFollower.s: jointFollower.cpp.s
 
-.PHONY : simJointFollower.s
+.PHONY : jointFollower.s
 
 # target to generate assembly for a file
-simJointFollower.cpp.s:
-	$(MAKE) -f CMakeFiles/simJointFollower.dir/build.make CMakeFiles/simJointFollower.dir/simJointFollower.cpp.s
-.PHONY : simJointFollower.cpp.s
+jointFollower.cpp.s:
+	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/jointFollower.cpp.s
+.PHONY : jointFollower.cpp.s
 
 # Help Target
 help:
@@ -156,12 +156,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... simJointFollower"
-	@echo "... simJointFollower.o"
-	@echo "... simJointFollower.i"
-	@echo "... simJointFollower.s"
+	@echo "... edit_cache"
+	@echo "... jointFollower"
+	@echo "... jointFollower.o"
+	@echo "... jointFollower.i"
+	@echo "... jointFollower.s"
 .PHONY : help
 
 
