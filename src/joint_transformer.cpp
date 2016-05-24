@@ -9,6 +9,7 @@ using namespace std;
 int main(int argc, char** argv){
   ros::init(argc, argv, "joint_transformer");
   ros::NodeHandle node;
+  ros::Publisher jointPosePub = node.advertise<geometry_msgs::Pose>("icub/jointPose", 1000);
 
   string target_frame = "/joint_11"; // right hand
   string ref_frame = "/joint_0"; // torso base
@@ -41,7 +42,7 @@ int main(int argc, char** argv){
     ROS_INFO("x =[%f], y =[%f], z =[%f]", jointPose.position.x, jointPose.position.y, jointPose.position.z);
     // ROS_INFO("X =[%f], Y =[%f], Z =[%f], W =[%f]", jointPose.orientation.x, jointPose.orientation.y, jointPose.orientation.z, jointPose.orientation.w);
 
-
+    jointPosePub.publish(jointPose);
     rate.sleep();
   }
   return 0;

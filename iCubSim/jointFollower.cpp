@@ -80,11 +80,11 @@ public:
         O_desired.resize(4);
 
         // ROS initialization
-        Node node("/yarp/listener");
+        Node node("/yarp/icub_sim/joint_listener");
 
         port.setReadOnly();
 
-        if (!port.open("chatter")) {
+        if (!port.open("icub/jointPose")) {
             fprintf(stderr,"Failed to open port\n");
             return 1;
         }
@@ -105,6 +105,7 @@ public:
     {
 
       printPoseStatus();
+      getHumanJointPose();
       std::cout << "runned!" << std::endl; // debug
       // X_desired = X_current;
       // X_desired[0] += -0.1;
