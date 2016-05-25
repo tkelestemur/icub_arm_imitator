@@ -2,6 +2,8 @@
 
 #include <ros/ros.h>
 #include <tf/transform_listener.h>
+#include <rosbag/bag.h>
+#include <rosbag/view.h>
 #include "geometry_msgs/Pose.h"
 
 using namespace std;
@@ -15,11 +17,13 @@ int main(int argc, char** argv){
   string ref_frame = "/joint_0"; // torso base
 
   geometry_msgs::Pose jointPose;
-
-
   tf::TransformListener listener;
+  string filename = "../bags/test_1.bag";
+  //rosbag init
+  // rosbag::Bag bag;
+  // bag.open(filename, rosbag::bagmode::Read);
 
-  ros::Rate rate(10.0);
+  ros::Rate rate(30.0);
   while (node.ok()){
     tf::StampedTransform transform;
     try{

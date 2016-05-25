@@ -4,7 +4,7 @@
 #
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-SET(PROJECTNAME motorControlAdvanced)
+SET(PROJECTNAME iCubSim_ROS)
 PROJECT(${PROJECTNAME})
 
 find_package(YARP)
@@ -16,6 +16,9 @@ include_directories(${ICUB_INCLUDE_DIRS} ${YARP_INCLUDE_DIRS})
 
 add_executable(jointFollower jointFollower.cpp)
 target_link_libraries(jointFollower ${YARP_LIBRARIES})
+
+add_executable(rosPoseListener rosPoseListener.cpp)
+target_link_libraries(rosPoseListener ${YARP_LIBRARIES})
 
 # add_executable(cartesianTutorial cartesianTutorial.cpp)
 # target_link_libraries(cartesianTutorial ${YARP_LIBRARIES})

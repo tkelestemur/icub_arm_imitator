@@ -114,7 +114,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=motorControlAdvanced
+CMAKE_PROJECT_NAME:STATIC=iCubSim_ROS
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -178,10 +178,10 @@ YARP_DIR:PATH=/usr/local/lib/YARP
 YARP_NO_DEPRECATED_WARNINGS:BOOL=OFF
 
 //Value Computed by CMake
-motorControlAdvanced_BINARY_DIR:STATIC=/home/tarik/ros_ws/src/icub_ros/iCubSim/build
+iCubSim_ROS_BINARY_DIR:STATIC=/home/tarik/ros_ws/src/icub_ros/iCubSim/build
 
 //Value Computed by CMake
-motorControlAdvanced_SOURCE_DIR:STATIC=/home/tarik/ros_ws/src/icub_ros/iCubSim
+iCubSim_ROS_SOURCE_DIR:STATIC=/home/tarik/ros_ws/src/icub_ros/iCubSim
 
 
 ########################

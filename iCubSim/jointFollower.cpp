@@ -1,18 +1,18 @@
 // -*- mode:C++; tab-width:4; c-basic-offset:4; indent-tabs-mode:nil -*-
 
 #include <yarp/os/all.h>
-#include <yarp/os/Network.h>
-#include <yarp/os/RateThread.h>
-#include <yarp/os/Time.h>
-#include <yarp/os/Property.h>
 #include <yarp/dev/ControlBoardInterfaces.h>
 #include <yarp/dev/CartesianControl.h>
 #include <yarp/dev/PolyDriver.h>
 #include <yarp/sig/Vector.h>
 
+#include "geometry_msgs_Pose.h"
+
 #include <stdio.h>
 #include <string>
 #include <iostream>
+
+
 
 using namespace yarp::os;
 using namespace yarp::dev;
@@ -26,11 +26,12 @@ class ControlThread: public RateThread
     PolyDriver dd;
     ICartesianControl *icart;
 
-    Vector X_current, O_current;
-    Vector X_desired, O_desired;
+    Vector cRot, cOrt; // current rotation and orientation of robot's joint
+    Vector dRot, dOrt; // desired rotation and orientation of robot's joint
 
-    // ROS related variables
-    Port port;
+    yarp::os::Subscriber<geometry_msgs_Pose> poseSub;
+    // geometry_msgs_Pose* jointPose;
+
 public:
     ControlThread(int period):RateThread(period){}
 
@@ -49,7 +50,7 @@ public:
            dd.view(icart);
 
            if (!icart){
-              std::cout << "driver is available!" << std::endl; // debug
+              // std::cout << "driver is available!" << std::endl; // debug
               return false;
            }
 
@@ -76,18 +77,13 @@ public:
 
         icart->setTrajTime(1.0);
 
-        X_desired.resize(3);
-        O_desired.resize(4);
+        dRot.resize(3);
+        dOrt.resize(4);
 
         // ROS initialization
-        Node node("/yarp/icub_sim/joint_listener");
+        Node node("/icubSim/poseSub");
+        poseSub.topic("/icub/jointPose");
 
-        port.setReadOnly();
-
-        if (!port.open("icub/jointPose")) {
-            fprintf(stderr,"Failed to open port\n");
-            return 1;
-        }
 
         return true;
     }
@@ -104,33 +100,33 @@ public:
     void run()
     {
 
-      printPoseStatus();
-      getHumanJointPose();
-      std::cout << "runned!" << std::endl; // debug
-      // X_desired = X_current;
-      // X_desired[0] += -0.1;
-      X_desired[0] = -0.1;
-      X_desired[1] = 0.1;
-      X_desired[2] = 0.1;
-      O_desired = O_current;
 
-      icart->goToPose(X_desired,O_desired);
+      printICubPoseStatus();
+      // getHumanJointPose();
+
+
+      geometry_msgs_Pose *jointPose = poseSub.read();
+      cout << "x position: " << jointPose->position.x  <<endl; // debug
+      dOrt = cOrt;
+      // dRot[0] = -0.1; // desired x coordinate
+      // dRot[1] = 0.1; // desired y coordinate
+      // dRot[2] = 0.1; // desired z coordinate
+
+
+      // icart->goToPose(dRot,dOrt);
       // icart->goToPoseSync(X_desired,O_desired); // send request and wait for reply
       // icart->waitMotionDone(0.04); // wait until the motion is done and ping at each 0.04 seconds
     }
 
 
-    void getHumanJointPose(/* arguments */) {
-      Bottle msg;
-      if (!port.read(msg)) {
-          fprintf(stderr,"Failed to read msg\n");
-
-      }
-      else {
-          printf("Got [%s]\n", msg.get(0).asString().c_str());
-      }
-
-    }
+    // void getHumanJointPose() {
+    //   geometry_msgs_Pose* jointPose  = poseSub.read();
+    //   // dRot[0] = -jointPose->position.z;
+    //   // dRot[1] = -jointPose->position.x;
+    //   // dRot[2] = jointPose->position.y;
+    //   // cout << "x position: " << jointPose->position.x  <<endl; // debug
+    //   std::cout << "debug" << std::endl;
+    // }
 
 
     void limitTorsoPitch()
@@ -148,10 +144,10 @@ public:
         icart->setLimits(axis,min,MAX_TORSO_PITCH);
     }
 
-    void printPoseStatus(){
-      icart->getPose(X_current, O_current);
-      std::cout << "Current Rotation (X)[m] = " << X_current.toString().c_str() << std::endl;
-      std::cout << "Current Orientation (O)[m] = " << O_current.toString().c_str() << std::endl;
+    void printICubPoseStatus(){
+      icart->getPose(cRot, cOrt);
+      cout << "robot palm rotation (xyz)[m] = " << cRot.toString().c_str() << endl;
+      // cout << "Current Orientation (O)[m] = " << O_current.toString().c_str() << endl;
 
     }
 

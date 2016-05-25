@@ -1,3 +1,4 @@
 /home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles/rebuild_cache.dir
+/home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles/rosPoseListener.dir
 /home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles/edit_cache.dir
 /home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles/jointFollower.dir
