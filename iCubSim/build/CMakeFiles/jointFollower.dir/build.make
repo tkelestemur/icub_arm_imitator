@@ -57,38 +57,38 @@ include CMakeFiles/jointFollower.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/jointFollower.dir/flags.make
 
-CMakeFiles/jointFollower.dir/jointFollower.cpp.o: CMakeFiles/jointFollower.dir/flags.make
-CMakeFiles/jointFollower.dir/jointFollower.cpp.o: ../jointFollower.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/jointFollower.dir/jointFollower.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jointFollower.dir/jointFollower.cpp.o -c /home/tarik/ros_ws/src/icub_ros/iCubSim/jointFollower.cpp
+CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o: CMakeFiles/jointFollower.dir/flags.make
+CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o: ../src/jointFollower.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o -c /home/tarik/ros_ws/src/icub_ros/iCubSim/src/jointFollower.cpp
 
-CMakeFiles/jointFollower.dir/jointFollower.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jointFollower.dir/jointFollower.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tarik/ros_ws/src/icub_ros/iCubSim/jointFollower.cpp > CMakeFiles/jointFollower.dir/jointFollower.cpp.i
+CMakeFiles/jointFollower.dir/src/jointFollower.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jointFollower.dir/src/jointFollower.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tarik/ros_ws/src/icub_ros/iCubSim/src/jointFollower.cpp > CMakeFiles/jointFollower.dir/src/jointFollower.cpp.i
 
-CMakeFiles/jointFollower.dir/jointFollower.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jointFollower.dir/jointFollower.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tarik/ros_ws/src/icub_ros/iCubSim/jointFollower.cpp -o CMakeFiles/jointFollower.dir/jointFollower.cpp.s
+CMakeFiles/jointFollower.dir/src/jointFollower.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jointFollower.dir/src/jointFollower.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tarik/ros_ws/src/icub_ros/iCubSim/src/jointFollower.cpp -o CMakeFiles/jointFollower.dir/src/jointFollower.cpp.s
 
-CMakeFiles/jointFollower.dir/jointFollower.cpp.o.requires:
+CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o.requires:
 
-.PHONY : CMakeFiles/jointFollower.dir/jointFollower.cpp.o.requires
+.PHONY : CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o.requires
 
-CMakeFiles/jointFollower.dir/jointFollower.cpp.o.provides: CMakeFiles/jointFollower.dir/jointFollower.cpp.o.requires
-	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/jointFollower.cpp.o.provides.build
-.PHONY : CMakeFiles/jointFollower.dir/jointFollower.cpp.o.provides
+CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o.provides: CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o.requires
+	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o.provides.build
+.PHONY : CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o.provides
 
-CMakeFiles/jointFollower.dir/jointFollower.cpp.o.provides.build: CMakeFiles/jointFollower.dir/jointFollower.cpp.o
+CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o.provides.build: CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o
 
 
 # Object files for target jointFollower
 jointFollower_OBJECTS = \
-"CMakeFiles/jointFollower.dir/jointFollower.cpp.o"
+"CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o"
 
 # External object files for target jointFollower
 jointFollower_EXTERNAL_OBJECTS =
 
-jointFollower: CMakeFiles/jointFollower.dir/jointFollower.cpp.o
+jointFollower: CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o
 jointFollower: CMakeFiles/jointFollower.dir/build.make
 jointFollower: /usr/local/lib/libYARP_math.so.2.3.65
 jointFollower: /usr/local/lib/libYARP_dev.so.2.3.65
@@ -105,7 +105,7 @@ CMakeFiles/jointFollower.dir/build: jointFollower
 
 .PHONY : CMakeFiles/jointFollower.dir/build
 
-CMakeFiles/jointFollower.dir/requires: CMakeFiles/jointFollower.dir/jointFollower.cpp.o.requires
+CMakeFiles/jointFollower.dir/requires: CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o.requires
 
 .PHONY : CMakeFiles/jointFollower.dir/requires
 

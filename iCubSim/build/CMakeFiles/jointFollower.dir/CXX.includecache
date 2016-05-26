@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/tarik/ros_ws/src/icub_ros/iCubSim/geometry_msgs_Point.h
+/home/tarik/ros_ws/src/icub_ros/iCubSim/include/geometry_msgs_Point.h
 string
 -
 vector
@@ -16,7 +16,7 @@ yarp/os/Wire.h
 yarp/os/idl/WireTypes.h
 -
 
-/home/tarik/ros_ws/src/icub_ros/iCubSim/geometry_msgs_Pose.h
+/home/tarik/ros_ws/src/icub_ros/iCubSim/include/geometry_msgs_Pose.h
 string
 -
 vector
@@ -26,11 +26,11 @@ yarp/os/Wire.h
 yarp/os/idl/WireTypes.h
 -
 geometry_msgs_Point.h
-/home/tarik/ros_ws/src/icub_ros/iCubSim/geometry_msgs_Point.h
+/home/tarik/ros_ws/src/icub_ros/iCubSim/include/geometry_msgs_Point.h
 geometry_msgs_Quaternion.h
-/home/tarik/ros_ws/src/icub_ros/iCubSim/geometry_msgs_Quaternion.h
+/home/tarik/ros_ws/src/icub_ros/iCubSim/include/geometry_msgs_Quaternion.h
 
-/home/tarik/ros_ws/src/icub_ros/iCubSim/geometry_msgs_Quaternion.h
+/home/tarik/ros_ws/src/icub_ros/iCubSim/include/geometry_msgs_Quaternion.h
 string
 -
 vector
@@ -40,9 +40,9 @@ yarp/os/Wire.h
 yarp/os/idl/WireTypes.h
 -
 geometry_msgs_Point.h
-/home/tarik/ros_ws/src/icub_ros/iCubSim/geometry_msgs_Point.h
+/home/tarik/ros_ws/src/icub_ros/iCubSim/include/geometry_msgs_Point.h
 
-/home/tarik/ros_ws/src/icub_ros/iCubSim/jointFollower.cpp
+/home/tarik/ros_ws/src/icub_ros/iCubSim/src/jointFollower.cpp
 yarp/os/all.h
 -
 yarp/dev/ControlBoardInterfaces.h
@@ -53,8 +53,8 @@ yarp/dev/PolyDriver.h
 -
 yarp/sig/Vector.h
 -
-geometry_msgs_Pose.h
-/home/tarik/ros_ws/src/icub_ros/iCubSim/geometry_msgs_Pose.h
+../include/geometry_msgs_Pose.h
+/home/tarik/ros_ws/src/icub_ros/iCubSim/include/geometry_msgs_Pose.h
 stdio.h
 -
 string

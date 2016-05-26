@@ -6,7 +6,7 @@
 #include <yarp/dev/PolyDriver.h>
 #include <yarp/sig/Vector.h>
 
-#include "geometry_msgs_Pose.h"
+#include "../include/geometry_msgs_Pose.h"
 
 #include <stdio.h>
 #include <string>
@@ -29,8 +29,11 @@ class ControlThread: public RateThread
     Vector cRot, cOrt; // current rotation and orientation of robot's joint
     Vector dRot, dOrt; // desired rotation and orientation of robot's joint
 
-    yarp::os::Subscriber<geometry_msgs_Pose> poseSub;
+
     // geometry_msgs_Pose* jointPose;
+    yarp::os::Node *node;
+    yarp::os::Subscriber<geometry_msgs_Pose> poseSub;
+    geometry_msgs_Pose *jointPose;
 
 public:
     ControlThread(int period):RateThread(period){}
@@ -81,9 +84,8 @@ public:
         dOrt.resize(4);
 
         // ROS initialization
-        Node node("/icubSim/poseSub");
+        node = new yarp::os::Node("/icubSim/poseSub");
         poseSub.topic("/icub/jointPose");
-
 
         return true;
     }
@@ -105,7 +107,8 @@ public:
       // getHumanJointPose();
 
 
-      geometry_msgs_Pose *jointPose = poseSub.read();
+
+      jointPose = poseSub.read();
       cout << "x position: " << jointPose->position.x  <<endl; // debug
       dOrt = cOrt;
       // dRot[0] = -0.1; // desired x coordinate

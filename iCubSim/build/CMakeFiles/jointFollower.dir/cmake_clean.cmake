@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/jointFollower.dir/jointFollower.cpp.o"
+  "CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o"
   "jointFollower.pdb"
   "jointFollower"
 )
