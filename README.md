@@ -12,10 +12,10 @@ Installation:
 
 Run in order:  
 1. `roscore`
-2. `yarp server --ros`
-3. Run simulator: `iCub_SIM`
-4. `simCartesianControl --no_legs`
-5. `iKinCartesianSolver --context simCartesianControl --part right_arm`
+2. `yarp server --ros`  
+3. Run simulator: `iCub_SIM`  
+4. `simCartesianControl --no_legs`   
+5. `iKinCartesianSolver --context simCartesianControl --part right_arm`   
 
 6. To get data from Kinect V2 Server run:   
 `rosrun kinect_client joints --ip 192.168.110.116`
