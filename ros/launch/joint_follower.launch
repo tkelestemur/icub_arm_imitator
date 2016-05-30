@@ -1,0 +1,12 @@
+<!-- -->
+<launch>
+
+
+<!-- Kinect V2 skeleton client -->
+<node pkg="kinect_client" type="tf_publisher" name="kinect_tf"/>
+<node pkg="kinect_client" type="joints" name="kinect_joints" args="--ip 144.122.225.164"/>
+
+<!-- joint transformer for icub simulations  -->
+<node pkg="icub_ros" type="joint_transformer" name="joint_transformer" output="screen"/>
+
+</launch>

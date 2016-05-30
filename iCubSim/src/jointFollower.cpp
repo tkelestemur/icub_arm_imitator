@@ -117,6 +117,10 @@ public:
         dRot[0] = -tf * jointPose->position.z;
         dRot[1] = -tf * jointPose->position.x;
         dRot[2] = tf * jointPose->position.y;
+        // dOrt[0] = jointPose->orientation.x;
+        // dOrt[1] = jointPose->orientation.y;
+        // dOrt[2] = jointPose->orientation.z;
+        // dOrt[3] = jointPose->orientation.w;
         cout << "desired robot palm rotation (xyz)[m]: " << dRot.toString().c_str() << endl;
         icart->goToPose(dRot,dOrt);
       }

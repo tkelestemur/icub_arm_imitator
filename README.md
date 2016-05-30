@@ -21,3 +21,4 @@ Run in order:
 `rosrun kinect_client joints --ip 192.168.110.116`
 and `rosrun kinect_client tf_publisher`
 7. `rosrun icub_ros joint_transformer`
+8. or directly run `roslaunch icub_ros joint_follower.launch`
