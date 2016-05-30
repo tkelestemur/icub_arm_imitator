@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
+#include <gsl/gsl_math.h>
 
 
 
@@ -30,7 +31,7 @@ class ControlThread: public RateThread
     Vector dRot, dOrt; // desired rotation and orientation of robot's joint
 
 
-    // geometry_msgs_Pose* jointPose;
+    // ROS variables
     yarp::os::Node *node;
     yarp::os::Subscriber<geometry_msgs_Pose> poseSub;
     geometry_msgs_Pose *jointPose;
@@ -53,7 +54,6 @@ public:
            dd.view(icart);
 
            if (!icart){
-              // std::cout << "driver is available!" << std::endl; // debug
               return false;
            }
 
@@ -74,18 +74,21 @@ public:
 
         // impose some restriction on the torso pitch
         limitTorsoPitch();
-
+        icart->setTrackingMode(true);
         // send the request for dofs reconfiguration
         icart->setDOF(newDof,curDof);
 
-        icart->setTrajTime(1.0);
+        // icart->setTrajTime(1.0);
 
         dRot.resize(3);
         dOrt.resize(4);
 
         // ROS initialization
         node = new yarp::os::Node("/icubSim/poseSub");
-        poseSub.topic("/icub/jointPose");
+        if (!poseSub.topic("/icub/jointPose")) {
+          cerr<< "Failed to subscriber to /icub/jointPose\n";
+          return -1;
+          }
 
         return true;
     }
@@ -93,6 +96,8 @@ public:
     void threadRelease()
     {
         printf("ControlThread:stopping the robot\n");
+        poseSub.close();
+
         icart->stopControl();
         dd.close();
 
@@ -104,33 +109,29 @@ public:
 
 
       printICubPoseStatus();
-      // getHumanJointPose();
+      getHumanJointPose();
+
+      double tf = 0.60;
+      dOrt = 0;
+      if (jointPose) {
+        dRot[0] = -tf * jointPose->position.z;
+        dRot[1] = -tf * jointPose->position.x;
+        dRot[2] = tf * jointPose->position.y;
+        cout << "desired robot palm rotation (xyz)[m]: " << dRot.toString().c_str() << endl;
+        icart->goToPose(dRot,dOrt);
+      }
+
+      else {
+        std::cout << "couldn't convert human to robot!" << std::endl;
+
+      }
 
 
 
-      jointPose = poseSub.read();
-      cout << "x position: " << jointPose->position.x  <<endl; // debug
-      dOrt = cOrt;
-      // dRot[0] = -0.1; // desired x coordinate
-      // dRot[1] = 0.1; // desired y coordinate
-      // dRot[2] = 0.1; // desired z coordinate
 
-
-      // icart->goToPose(dRot,dOrt);
       // icart->goToPoseSync(X_desired,O_desired); // send request and wait for reply
       // icart->waitMotionDone(0.04); // wait until the motion is done and ping at each 0.04 seconds
     }
-
-
-    // void getHumanJointPose() {
-    //   geometry_msgs_Pose* jointPose  = poseSub.read();
-    //   // dRot[0] = -jointPose->position.z;
-    //   // dRot[1] = -jointPose->position.x;
-    //   // dRot[2] = jointPose->position.y;
-    //   // cout << "x position: " << jointPose->position.x  <<endl; // debug
-    //   std::cout << "debug" << std::endl;
-    // }
-
 
     void limitTorsoPitch()
     {
@@ -149,8 +150,21 @@ public:
 
     void printICubPoseStatus(){
       icart->getPose(cRot, cOrt);
-      cout << "robot palm rotation (xyz)[m] = " << cRot.toString().c_str() << endl;
+      cout << "robot palm rotation (xyz)[m]: " << cRot.toString().c_str() << endl;
       // cout << "Current Orientation (O)[m] = " << O_current.toString().c_str() << endl;
+
+    }
+
+    void getHumanJointPose() {
+      jointPose = poseSub.read(false);
+
+      if (!jointPose) {
+        cout << "human palm rotation (xyz): no data yet!" << endl;
+      }
+      else if (jointPose) {
+        cout << "human palm rotation (xyz): " << jointPose->position.x << " " << jointPose->position.y  << " " << jointPose->position.z << endl; // debug
+      }
+
 
     }
 
@@ -167,13 +181,10 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-
-
-
-    ControlThread ctrlThread(400); //period is 40ms
+    ControlThread ctrlThread(1000);
 
     ctrlThread.start();
-    int RUN_TIME = 4; // seconds
+    int RUN_TIME = 3600; // seconds
     bool done=false;
     double startTime=Time::now();
     while(!done)

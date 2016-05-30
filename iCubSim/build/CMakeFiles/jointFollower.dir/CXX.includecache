@@ -61,6 +61,8 @@ string
 -
 iostream
 -
+gsl/gsl_math.h
+-
 
 /usr/local/include/yarp/conf/api.h
 yarp/conf/api.h
