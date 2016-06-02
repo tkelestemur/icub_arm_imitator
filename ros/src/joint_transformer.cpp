@@ -14,6 +14,7 @@ int main(int argc, char** argv){
   ros::Publisher jointPosePub = node.advertise<geometry_msgs::Pose>("icub/jointPose", 1000);
 
   string target_frame = "/joint_11"; // right hand
+  // string ref_frame = "/joint_2"; // torso base
   string ref_frame = "/joint_0"; // torso base
   // string ref_frame = "/joint_8"; // right shoulder
 
@@ -52,10 +53,10 @@ int main(int argc, char** argv){
 
 
 
-    myfile << jointPose.position.x <<" , "
-           << jointPose.position.y <<" , "
-           << jointPose.position.z<<" , ";
-    myfile << endl;
+    // myfile << jointPose.position.x <<" , "
+    //        << jointPose.position.y <<" , "
+    //        << jointPose.position.z<<" , ";
+    // myfile << endl;
 
     // ROS_INFO("x =[%f], y =[%f], z =[%f]", jointPose.position.x, jointPose.position.y, jointPose.position.z);
     // ROS_INFO("X =[%f], Y =[%f], Z =[%f], W =[%f]", jointPose.orientation.x, jointPose.orientation.y, jointPose.orientation.z, jointPose.orientation.w);

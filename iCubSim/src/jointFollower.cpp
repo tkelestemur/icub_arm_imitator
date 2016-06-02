@@ -185,7 +185,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    ControlThread ctrlThread(1000);
+    ControlThread ctrlThread(500);
 
     ctrlThread.start();
     int RUN_TIME = 3600; // seconds
