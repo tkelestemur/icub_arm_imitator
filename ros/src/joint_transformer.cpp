@@ -24,8 +24,8 @@ int main(int argc, char** argv){
   // rosbag::Bag bag;
   // bag.open(filename, rosbag::bagmode::Read);
 
-  ofstream myfile;
-  myfile.open("tf_handtotorso.csv");
+  // ofstream myfile;
+  // myfile.open("tf_handtotorso.csv");
 
   ros::Rate rate(30.0);
   int count = 0;

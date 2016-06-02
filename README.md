@@ -16,9 +16,10 @@ Run in order:
 3. Run simulator: `iCub_SIM`  
 4. `simCartesianControl --no_legs`   
 5. `iKinCartesianSolver --context simCartesianControl --part right_arm`   
+5. `cd ~/catkin_ws/src/icub_ros/iCubSim/build` and `run ./jointFollower`
 
-6. To get data from Kinect V2 Server run:   
+7. To get data from Kinect V2 Server run:   
 `rosrun kinect_client joints --ip 192.168.110.116`
 and `rosrun kinect_client tf_publisher`
-7. `rosrun icub_ros joint_transformer`
-8. or directly run `roslaunch icub_ros joint_follower.launch`
+8. `rosrun icub_ros joint_transformer`
+9. or directly run `roslaunch icub_ros joint_follower.launch`
