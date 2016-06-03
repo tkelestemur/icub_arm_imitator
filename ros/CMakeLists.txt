@@ -131,6 +131,7 @@ include_directories(
 
 ## Declare a C++ executable
 add_executable(joint_transformer src/joint_transformer.cpp)
+add_executable(kinect_tf_publisher src/kinect_tf_publisher.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
@@ -138,6 +139,10 @@ add_executable(joint_transformer src/joint_transformer.cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(joint_transformer
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(kinect_tf_publisher
   ${catkin_LIBRARIES}
 )
 
