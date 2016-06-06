@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/tarik/ros_ws/src/icub_ros/iCubSim/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,84 +111,84 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named jointSub
+# Target rules for targets named icub_state_publisher
 
 # Build rule for target.
-jointSub: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 jointSub
-.PHONY : jointSub
+icub_state_publisher: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 icub_state_publisher
+.PHONY : icub_state_publisher
 
 # fast build rule for target.
-jointSub/fast:
-	$(MAKE) -f CMakeFiles/jointSub.dir/build.make CMakeFiles/jointSub.dir/build
-.PHONY : jointSub/fast
+icub_state_publisher/fast:
+	$(MAKE) -f CMakeFiles/icub_state_publisher.dir/build.make CMakeFiles/icub_state_publisher.dir/build
+.PHONY : icub_state_publisher/fast
 
 #=============================================================================
-# Target rules for targets named jointFollower
+# Target rules for targets named joint_follower
 
 # Build rule for target.
-jointFollower: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 jointFollower
-.PHONY : jointFollower
+joint_follower: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 joint_follower
+.PHONY : joint_follower
 
 # fast build rule for target.
-jointFollower/fast:
-	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/build
-.PHONY : jointFollower/fast
+joint_follower/fast:
+	$(MAKE) -f CMakeFiles/joint_follower.dir/build.make CMakeFiles/joint_follower.dir/build
+.PHONY : joint_follower/fast
 
-src/jointFollower.o: src/jointFollower.cpp.o
+src/icub_state_publisher.o: src/icub_state_publisher.cpp.o
 
-.PHONY : src/jointFollower.o
-
-# target to build an object file
-src/jointFollower.cpp.o:
-	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/src/jointFollower.cpp.o
-.PHONY : src/jointFollower.cpp.o
-
-src/jointFollower.i: src/jointFollower.cpp.i
-
-.PHONY : src/jointFollower.i
-
-# target to preprocess a source file
-src/jointFollower.cpp.i:
-	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/src/jointFollower.cpp.i
-.PHONY : src/jointFollower.cpp.i
-
-src/jointFollower.s: src/jointFollower.cpp.s
-
-.PHONY : src/jointFollower.s
-
-# target to generate assembly for a file
-src/jointFollower.cpp.s:
-	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/src/jointFollower.cpp.s
-.PHONY : src/jointFollower.cpp.s
-
-src/jointSub.o: src/jointSub.cpp.o
-
-.PHONY : src/jointSub.o
+.PHONY : src/icub_state_publisher.o
 
 # target to build an object file
-src/jointSub.cpp.o:
-	$(MAKE) -f CMakeFiles/jointSub.dir/build.make CMakeFiles/jointSub.dir/src/jointSub.cpp.o
-.PHONY : src/jointSub.cpp.o
+src/icub_state_publisher.cpp.o:
+	$(MAKE) -f CMakeFiles/icub_state_publisher.dir/build.make CMakeFiles/icub_state_publisher.dir/src/icub_state_publisher.cpp.o
+.PHONY : src/icub_state_publisher.cpp.o
 
-src/jointSub.i: src/jointSub.cpp.i
+src/icub_state_publisher.i: src/icub_state_publisher.cpp.i
 
-.PHONY : src/jointSub.i
+.PHONY : src/icub_state_publisher.i
 
 # target to preprocess a source file
-src/jointSub.cpp.i:
-	$(MAKE) -f CMakeFiles/jointSub.dir/build.make CMakeFiles/jointSub.dir/src/jointSub.cpp.i
-.PHONY : src/jointSub.cpp.i
+src/icub_state_publisher.cpp.i:
+	$(MAKE) -f CMakeFiles/icub_state_publisher.dir/build.make CMakeFiles/icub_state_publisher.dir/src/icub_state_publisher.cpp.i
+.PHONY : src/icub_state_publisher.cpp.i
 
-src/jointSub.s: src/jointSub.cpp.s
+src/icub_state_publisher.s: src/icub_state_publisher.cpp.s
 
-.PHONY : src/jointSub.s
+.PHONY : src/icub_state_publisher.s
 
 # target to generate assembly for a file
-src/jointSub.cpp.s:
-	$(MAKE) -f CMakeFiles/jointSub.dir/build.make CMakeFiles/jointSub.dir/src/jointSub.cpp.s
-.PHONY : src/jointSub.cpp.s
+src/icub_state_publisher.cpp.s:
+	$(MAKE) -f CMakeFiles/icub_state_publisher.dir/build.make CMakeFiles/icub_state_publisher.dir/src/icub_state_publisher.cpp.s
+.PHONY : src/icub_state_publisher.cpp.s
+
+src/joint_follower.o: src/joint_follower.cpp.o
+
+.PHONY : src/joint_follower.o
+
+# target to build an object file
+src/joint_follower.cpp.o:
+	$(MAKE) -f CMakeFiles/joint_follower.dir/build.make CMakeFiles/joint_follower.dir/src/joint_follower.cpp.o
+.PHONY : src/joint_follower.cpp.o
+
+src/joint_follower.i: src/joint_follower.cpp.i
+
+.PHONY : src/joint_follower.i
+
+# target to preprocess a source file
+src/joint_follower.cpp.i:
+	$(MAKE) -f CMakeFiles/joint_follower.dir/build.make CMakeFiles/joint_follower.dir/src/joint_follower.cpp.i
+.PHONY : src/joint_follower.cpp.i
+
+src/joint_follower.s: src/joint_follower.cpp.s
+
+.PHONY : src/joint_follower.s
+
+# target to generate assembly for a file
+src/joint_follower.cpp.s:
+	$(MAKE) -f CMakeFiles/joint_follower.dir/build.make CMakeFiles/joint_follower.dir/src/joint_follower.cpp.s
+.PHONY : src/joint_follower.cpp.s
 
 # Help Target
 help:
@@ -196,16 +196,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... jointSub"
 	@echo "... edit_cache"
-	@echo "... jointFollower"
-	@echo "... src/jointFollower.o"
-	@echo "... src/jointFollower.i"
-	@echo "... src/jointFollower.s"
-	@echo "... src/jointSub.o"
-	@echo "... src/jointSub.i"
-	@echo "... src/jointSub.s"
+	@echo "... rebuild_cache"
+	@echo "... icub_state_publisher"
+	@echo "... joint_follower"
+	@echo "... src/icub_state_publisher.o"
+	@echo "... src/icub_state_publisher.i"
+	@echo "... src/icub_state_publisher.s"
+	@echo "... src/joint_follower.o"
+	@echo "... src/joint_follower.i"
+	@echo "... src/joint_follower.s"
 .PHONY : help
 
 

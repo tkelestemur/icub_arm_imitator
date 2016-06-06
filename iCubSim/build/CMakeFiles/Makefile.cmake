@@ -51,6 +51,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/jointSub.dir/DependInfo.cmake"
-  "CMakeFiles/jointFollower.dir/DependInfo.cmake"
+  "CMakeFiles/icub_state_publisher.dir/DependInfo.cmake"
+  "CMakeFiles/joint_follower.dir/DependInfo.cmake"
   )

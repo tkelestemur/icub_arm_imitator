@@ -14,14 +14,11 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ICUB_MODULE_PATH})
 
 include_directories(${ICUB_INCLUDE_DIRS} ${YARP_INCLUDE_DIRS})
 
-add_executable(jointFollower src/jointFollower.cpp)
-target_link_libraries(jointFollower ${YARP_LIBRARIES})
+add_executable(joint_follower
+	src/joint_follower.cpp
+)
 
-# add_executable(rosPoseListener rosPoseListener.cpp)
-# target_link_libraries(rosPoseListener ${YARP_LIBRARIES})
+target_link_libraries(joint_follower ${YARP_LIBRARIES})
 
-add_executable(jointSub src/jointSub.cpp)
-target_link_libraries(jointSub ${YARP_LIBRARIES})
-
-# add_executable(cartesianTutorial cartesianTutorial.cpp)
-# target_link_libraries(cartesianTutorial ${YARP_LIBRARIES})
+add_executable(icub_state_publisher src/icub_state_publisher.cpp)
+target_link_libraries(icub_state_publisher ${YARP_LIBRARIES})

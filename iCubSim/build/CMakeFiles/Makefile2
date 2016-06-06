@@ -60,76 +60,76 @@ CMAKE_SOURCE_DIR = /home/tarik/ros_ws/src/icub_ros/iCubSim
 CMAKE_BINARY_DIR = /home/tarik/ros_ws/src/icub_ros/iCubSim/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/jointSub.dir
+# Target rules for target CMakeFiles/icub_state_publisher.dir
 
 # All Build rule for target.
-CMakeFiles/jointSub.dir/all:
-	$(MAKE) -f CMakeFiles/jointSub.dir/build.make CMakeFiles/jointSub.dir/depend
-	$(MAKE) -f CMakeFiles/jointSub.dir/build.make CMakeFiles/jointSub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles --progress-num=3,4 "Built target jointSub"
-.PHONY : CMakeFiles/jointSub.dir/all
+CMakeFiles/icub_state_publisher.dir/all:
+	$(MAKE) -f CMakeFiles/icub_state_publisher.dir/build.make CMakeFiles/icub_state_publisher.dir/depend
+	$(MAKE) -f CMakeFiles/icub_state_publisher.dir/build.make CMakeFiles/icub_state_publisher.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles --progress-num=1,2 "Built target icub_state_publisher"
+.PHONY : CMakeFiles/icub_state_publisher.dir/all
 
 # Include target in all.
-all: CMakeFiles/jointSub.dir/all
+all: CMakeFiles/icub_state_publisher.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/jointSub.dir/rule: cmake_check_build_system
+CMakeFiles/icub_state_publisher.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/jointSub.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/icub_state_publisher.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles 0
-.PHONY : CMakeFiles/jointSub.dir/rule
+.PHONY : CMakeFiles/icub_state_publisher.dir/rule
 
 # Convenience name for target.
-jointSub: CMakeFiles/jointSub.dir/rule
+icub_state_publisher: CMakeFiles/icub_state_publisher.dir/rule
 
-.PHONY : jointSub
-
-# clean rule for target.
-CMakeFiles/jointSub.dir/clean:
-	$(MAKE) -f CMakeFiles/jointSub.dir/build.make CMakeFiles/jointSub.dir/clean
-.PHONY : CMakeFiles/jointSub.dir/clean
+.PHONY : icub_state_publisher
 
 # clean rule for target.
-clean: CMakeFiles/jointSub.dir/clean
+CMakeFiles/icub_state_publisher.dir/clean:
+	$(MAKE) -f CMakeFiles/icub_state_publisher.dir/build.make CMakeFiles/icub_state_publisher.dir/clean
+.PHONY : CMakeFiles/icub_state_publisher.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/icub_state_publisher.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/jointFollower.dir
+# Target rules for target CMakeFiles/joint_follower.dir
 
 # All Build rule for target.
-CMakeFiles/jointFollower.dir/all:
-	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/depend
-	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles --progress-num=1,2 "Built target jointFollower"
-.PHONY : CMakeFiles/jointFollower.dir/all
+CMakeFiles/joint_follower.dir/all:
+	$(MAKE) -f CMakeFiles/joint_follower.dir/build.make CMakeFiles/joint_follower.dir/depend
+	$(MAKE) -f CMakeFiles/joint_follower.dir/build.make CMakeFiles/joint_follower.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles --progress-num=3,4 "Built target joint_follower"
+.PHONY : CMakeFiles/joint_follower.dir/all
 
 # Include target in all.
-all: CMakeFiles/jointFollower.dir/all
+all: CMakeFiles/joint_follower.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/jointFollower.dir/rule: cmake_check_build_system
+CMakeFiles/joint_follower.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/jointFollower.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/joint_follower.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/tarik/ros_ws/src/icub_ros/iCubSim/build/CMakeFiles 0
-.PHONY : CMakeFiles/jointFollower.dir/rule
+.PHONY : CMakeFiles/joint_follower.dir/rule
 
 # Convenience name for target.
-jointFollower: CMakeFiles/jointFollower.dir/rule
+joint_follower: CMakeFiles/joint_follower.dir/rule
 
-.PHONY : jointFollower
-
-# clean rule for target.
-CMakeFiles/jointFollower.dir/clean:
-	$(MAKE) -f CMakeFiles/jointFollower.dir/build.make CMakeFiles/jointFollower.dir/clean
-.PHONY : CMakeFiles/jointFollower.dir/clean
+.PHONY : joint_follower
 
 # clean rule for target.
-clean: CMakeFiles/jointFollower.dir/clean
+CMakeFiles/joint_follower.dir/clean:
+	$(MAKE) -f CMakeFiles/joint_follower.dir/build.make CMakeFiles/joint_follower.dir/clean
+.PHONY : CMakeFiles/joint_follower.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/joint_follower.dir/clean
 
 .PHONY : clean
 
