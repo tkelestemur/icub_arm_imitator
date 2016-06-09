@@ -14,11 +14,5 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ICUB_MODULE_PATH})
 
 include_directories(${ICUB_INCLUDE_DIRS} ${YARP_INCLUDE_DIRS})
 
-add_executable(joint_follower
-	src/joint_follower.cpp
-)
-
-target_link_libraries(joint_follower ${YARP_LIBRARIES})
-
-add_executable(icub_state_publisher src/icub_state_publisher.cpp)
-target_link_libraries(icub_state_publisher ${YARP_LIBRARIES})
+add_executable(arm_imitator src/arm_imitator.cpp)
+target_link_libraries(arm_imitator ${YARP_LIBRARIES})
