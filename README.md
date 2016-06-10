@@ -1,7 +1,5 @@
 # icub_ros
 
-## ROS and Yarp Packages for iCub HRI Project
-
 #### Following Human Arm in iCub Simulation
 
 Installation:  
@@ -16,7 +14,7 @@ Run in order:
 3. Run simulator: `iCub_SIM`  
 4. `simCartesianControl --no_legs`   
 5. `iKinCartesianSolver --context simCartesianControl --part right_arm`   
-5. `cd ~/catkin_ws/src/icub_ros/iCubSim/build` and `run ./jointFollower`
+5. `cd ~/catkin_ws/src/icub_arm_imitator/yarp/build` and `run ./arm_imitator`
 
 7. To get data from Kinect V2 Server run:   
 `rosrun kinect_client joints --ip 192.168.110.116`

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>icub_ros</name>
+  <name>icub_arm_imitator</name>
   <version>0.0.0</version>
   <description>The icub_ros package</description>
 

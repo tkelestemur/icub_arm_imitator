@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(icub_ros)
+project(icub_arm_imitator)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
