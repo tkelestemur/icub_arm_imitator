@@ -3,7 +3,7 @@
 
 
 <!-- Kinect V2 skeleton client -->
-<node pkg="kinect_client" type="joints" name="kinect_joints" args="--ip 144.122.225.164"/>
+<node pkg="kinect_client" type="skeleton_client" name="kinect_joints" args="--ip 144.122.225.164"/>
 
 
 <!-- joint transformer for icub simulations  -->

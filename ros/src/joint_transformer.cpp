@@ -1,10 +1,15 @@
 #include <iostream>
 #include <fstream>
+
 #include <ros/ros.h>
 #include <tf/transform_listener.h>
+
 #include <rosbag/bag.h>
 #include <rosbag/view.h>
+
 #include "geometry_msgs/Pose.h"
+#include "visualization_msgs/Marker.h"
+#include "visualization_msgs/MarkerArray.h"
 
 using namespace std;
 
@@ -13,24 +18,23 @@ int main(int argc, char** argv){
   ros::NodeHandle node;
   ros::Publisher jointPosePub = node.advertise<geometry_msgs::Pose>("icub/jointPose", 1000);
 
-  string target_frame = "/joint_11"; // right hand
-  // string ref_frame = "/joint_2"; // torso base
-  string ref_frame = "/joint_0"; // torso base
-  // string ref_frame = "/joint_8"; // right shoulder
+  string target_frame = "/HandRight"; // right hand
+  string ref_frame = "/SpineBase"; // torso base
+
+//   string target_frame = "/joint_11"; // right hand
+// string ref_frame = "/joint_0"; // torso base
 
   geometry_msgs::Pose jointPose;
   tf::TransformListener listener;
-  string filename = "../bags/test_1.bag";
-  //rosbag init
-  // rosbag::Bag bag;
-  // bag.open(filename, rosbag::bagmode::Read);
-
   // ofstream myfile;
   // myfile.open("tf_handtotorso.csv");
 
+
   ros::Rate rate(30.0);
+
   int count = 0;
   while (node.ok()){
+
     std::stringstream ss;
     ss << count;
     tf::StampedTransform transform;
@@ -51,15 +55,10 @@ int main(int argc, char** argv){
     jointPose.orientation.z = transform.getRotation().z();
     jointPose.orientation.w = transform.getRotation().w();
 
-
-
     // myfile << jointPose.position.x <<" , "
     //        << jointPose.position.y <<" , "
     //        << jointPose.position.z<<" , ";
     // myfile << endl;
-
-    // ROS_INFO("x =[%f], y =[%f], z =[%f]", jointPose.position.x, jointPose.position.y, jointPose.position.z);
-    // ROS_INFO("X =[%f], Y =[%f], Z =[%f], W =[%f]", jointPose.orientation.x, jointPose.orientation.y, jointPose.orientation.z, jointPose.orientation.w);
 
     jointPosePub.publish(jointPose);
     rate.sleep();

@@ -17,7 +17,7 @@ Run in order:
 5. `cd ~/catkin_ws/src/icub_arm_imitator/yarp/build` and `run ./arm_imitator`
 
 7. To get data from Kinect V2 Server run:   
-`rosrun kinect_client joints --ip 192.168.110.116`
+`rosrun kinect_client joints --ip 144.122.225.164`
 and `rosrun kinect_client tf_publisher`
 8. `rosrun icub_ros joint_transformer`
-9. or directly run `roslaunch icub_ros joint_follower.launch`
+9. or directly run `roslaunch icub_description icub.launch`
