@@ -1,14 +1,25 @@
-# icub_ros
+# icub_arm_imitator
 
 #### Following Human Arm in iCub Simulation
 
-Installation:  
-`cd ~/catkin_ws/src`   
-`git clone https://github.com/tkelestemur/icub_ros.git`   
-`cd ~/catkin_ws`   
-`catkin_make`
+### Requirements
 
-Run in order:  
+1. ROS : http://wiki.ros.org/
+2. Yarp : http://www.yarp.it/
+3. iCub : http://wiki.icub.org/
+
+
+### Install:  
+1. `cd ~/catkin_ws/src`   
+2. `git clone https://github.com/tkelestemur/icub_arm_imitator.git`   
+3. `cd ~/catkin_ws`   
+4. `catkin_make`
+5. `cd ~/catkin_ws/src/icub_arm_imitator/yarp`
+6. `mkdir build && cd build`
+7. `cmake ../`
+8. `make`
+
+### Run:  
 1. `roscore`
 2. `yarp server --ros`  
 3. Run simulator: `iCub_SIM`  
@@ -20,4 +31,4 @@ Run in order:
 `rosrun kinect_client joints --ip 144.122.225.164`
 and `rosrun kinect_client tf_publisher`
 8. `rosrun icub_ros joint_transformer`
-9. or directly run `roslaunch icub_description icub.launch`
+9. or directly run `roslaunch icub_arm_imitator arm_imitator.launch`
