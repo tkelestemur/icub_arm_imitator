@@ -54,7 +54,7 @@ int main(int argc, char** argv){
     jointPose.orientation.y = transform.getRotation().y();
     jointPose.orientation.z = transform.getRotation().z();
     jointPose.orientation.w = transform.getRotation().w();
-
+    // std::cout << "x: " << jointPose.position.x << " y: " << jointPose.position.y <<" z: " << jointPose.position.z <<std::endl;
     // myfile << jointPose.position.x <<" , "
     //        << jointPose.position.y <<" , "
     //        << jointPose.position.z<<" , ";

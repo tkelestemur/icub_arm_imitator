@@ -84,7 +84,7 @@ public:
         dOrt.resize(4);
 
         // ROS initialization
-        node = new yarp::os::Node("/icubSim/poseSub");
+        node = new yarp::os::Node("/icub_arm_imitator/arm_poses");
         if (!poseSub.topic("/icub/jointPose")) {
           cerr<< "Failed to subscriber to /icub/jointPose\n";
           return -1;
@@ -106,29 +106,35 @@ public:
 
     void run()
     {
-
-
-      printICubPoseStatus();
-      getHumanJointPose();
-
       double tf = 0.60;
       dOrt = 0;
-      if (jointPose) {
-        dRot[0] = -tf * jointPose->position.z;
-        dRot[1] = -tf * jointPose->position.x;
+
+      jointPose = poseSub.read(false);
+
+      if (!jointPose) {
+        cout << "human palm rotation (xyz): no data yet!" << endl;
+      }
+
+      else if (jointPose) {
+        dRot[0] = tf * jointPose->position.z;
+        dRot[1] = tf * jointPose->position.x;
         dRot[2] = tf * jointPose->position.y;
+        // cout << jointPose->position.z << " x " << tf << " = "<< dRot[0] << endl;
         // dOrt[0] = jointPose->orientation.x;
         // dOrt[1] = jointPose->orientation.y;
         // dOrt[2] = jointPose->orientation.z;
         // dOrt[3] = jointPose->orientation.w;
         cout << "robot palm dRotation (xyz)[m]: " << dRot.toString().c_str() << endl;
         icart->goToPose(dRot,dOrt);
+
+        icart->getPose(cRot, cOrt);
+        cout << "robot palm rotation (xyz)[m]: " << cRot.toString().c_str() << endl;
       }
 
-      else {
-        std::cout << "couldn't convert human to robot!" << std::endl;
-
-      }
+      // else {
+      //   std::cout << "couldn't convert human to robot!" << std::endl;
+      //
+      // }
 
 
 
@@ -152,26 +158,6 @@ public:
         icart->setLimits(axis,min,MAX_TORSO_PITCH);
     }
 
-    void printICubPoseStatus(){
-      icart->getPose(cRot, cOrt);
-      cout << "robot palm rotation (xyz)[m]: " << cRot.toString().c_str() << endl;
-      // cout << "Current Orientation (O)[m] = " << O_current.toString().c_str() << endl;
-
-    }
-
-    void getHumanJointPose() {
-      jointPose = poseSub.read(false);
-
-      if (!jointPose) {
-        cout << "human palm rotation (xyz): no data yet!" << endl;
-      }
-      else if (jointPose) {
-        cout << "human palm rotation (xyz): " << jointPose->position.x << " " << jointPose->position.y  << " " << jointPose->position.z << endl; // debug
-      }
-
-
-    }
-
 
 };
 
@@ -185,7 +171,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    ControlThread ctrlThread(500);
+    ControlThread ctrlThread(200);
 
     ctrlThread.start();
     int RUN_TIME = 3600; // seconds
