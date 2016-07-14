@@ -120,9 +120,9 @@ public:
         dRot[1] = tf * jointPose->position.x;
         dRot[2] = tf * jointPose->position.y;
         // cout << jointPose->position.z << " x " << tf << " = "<< dRot[0] << endl;
-        // dOrt[0] = jointPose->orientation.x;
-        // dOrt[1] = jointPose->orientation.y;
-        // dOrt[2] = jointPose->orientation.z;
+        // dOrt[0] = jointPose->orientation.z;
+        // dOrt[1] = jointPose->orientation.x;
+        // dOrt[2] = jointPose->orientation.y;
         // dOrt[3] = jointPose->orientation.w;
         cout << "robot palm dRotation (xyz)[m]: " << dRot.toString().c_str() << endl;
         icart->goToPose(dRot,dOrt);
