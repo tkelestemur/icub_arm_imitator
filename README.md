@@ -2,6 +2,8 @@
 
 #### Following Human Arm in iCub Simulation
 
+(Collision development)
+
 ### Requirements
 
 1. ROS : http://wiki.ros.org/
