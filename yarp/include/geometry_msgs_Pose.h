@@ -14,6 +14,8 @@
 #include <vector>
 #include <yarp/os/Wire.h>
 #include <yarp/os/idl/WireTypes.h>
+#include "TickTime.h"
+#include "std_msgs_Header.h"
 #include "geometry_msgs_Point.h"
 #include "geometry_msgs_Quaternion.h"
 

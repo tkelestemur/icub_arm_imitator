@@ -1,15 +1,10 @@
 // This is an automatically generated file.
-// Generated from this geometry_msgs_Point.msg definition:
-//   # This contains the position of a point in free space
-//   float64 x
-//   float64 y
-//   float64 z
-//   
+// Generated from this TickDuration.msg definition:
 // Instances of this class can be read and written with YARP ports,
 // using a ROS-compatible format.
 
-#ifndef YARPMSG_TYPE_geometry_msgs_Point
-#define YARPMSG_TYPE_geometry_msgs_Point
+#ifndef YARPMSG_TYPE_TickDuration
+#define YARPMSG_TYPE_TickDuration
 
 #include <string>
 #include <vector>
@@ -17,41 +12,39 @@
 #include <yarp/os/idl/WireTypes.h>
 #include "TickTime.h"
 #include "std_msgs_Header.h"
+#include "geometry_msgs_Point.h"
+#include "geometry_msgs_Quaternion.h"
+#include "geometry_msgs_Pose.h"
+#include "geometry_msgs_Vector3.h"
+#include "std_msgs_ColorRGBA.h"
 
-class geometry_msgs_Point : public yarp::os::idl::WirePortable {
+class TickDuration : public yarp::os::idl::WirePortable {
 public:
-  yarp::os::NetFloat64 x;
-  yarp::os::NetFloat64 y;
-  yarp::os::NetFloat64 z;
+  yarp::os::NetUint32 sec;
+  yarp::os::NetUint32 nsec;
 
-  geometry_msgs_Point() {
+  TickDuration() {
   }
 
   bool readBare(yarp::os::ConnectionReader& connection) {
-    // *** x ***
-    x = connection.expectDouble();
+    // *** sec ***
+    sec = connection.expectInt();
 
-    // *** y ***
-    y = connection.expectDouble();
-
-    // *** z ***
-    z = connection.expectDouble();
+    // *** nsec ***
+    nsec = connection.expectInt();
     return !connection.isError();
   }
 
   bool readBottle(yarp::os::ConnectionReader& connection) {
     connection.convertTextMode();
     yarp::os::idl::WireReader reader(connection);
-    if (!reader.readListHeader(3)) return false;
+    if (!reader.readListHeader(2)) return false;
 
-    // *** x ***
-    x = reader.expectDouble();
+    // *** sec ***
+    sec = reader.expectInt();
 
-    // *** y ***
-    y = reader.expectDouble();
-
-    // *** z ***
-    z = reader.expectDouble();
+    // *** nsec ***
+    nsec = reader.expectInt();
     return !connection.isError();
   }
 
@@ -62,32 +55,25 @@ public:
   }
 
   bool writeBare(yarp::os::ConnectionWriter& connection) {
-    // *** x ***
-    connection.appendDouble(x);
+    // *** sec ***
+    connection.appendInt(sec);
 
-    // *** y ***
-    connection.appendDouble(y);
-
-    // *** z ***
-    connection.appendDouble(z);
+    // *** nsec ***
+    connection.appendInt(nsec);
     return !connection.isError();
   }
 
   bool writeBottle(yarp::os::ConnectionWriter& connection) {
     connection.appendInt(BOTTLE_TAG_LIST);
-    connection.appendInt(3);
+    connection.appendInt(2);
 
-    // *** x ***
-    connection.appendInt(BOTTLE_TAG_DOUBLE);
-    connection.appendDouble((double)x);
+    // *** sec ***
+    connection.appendInt(BOTTLE_TAG_INT);
+    connection.appendInt((int)sec);
 
-    // *** y ***
-    connection.appendInt(BOTTLE_TAG_DOUBLE);
-    connection.appendDouble((double)y);
-
-    // *** z ***
-    connection.appendInt(BOTTLE_TAG_DOUBLE);
-    connection.appendDouble((double)z);
+    // *** nsec ***
+    connection.appendInt(BOTTLE_TAG_INT);
+    connection.appendInt((int)nsec);
     connection.convertTextMode();
     return !connection.isError();
   }
@@ -100,22 +86,18 @@ public:
 
   // This class will serialize ROS style or YARP style depending on protocol.
   // If you need to force a serialization style, use one of these classes:
-  typedef yarp::os::idl::BareStyle<geometry_msgs_Point> rosStyle;
-  typedef yarp::os::idl::BottleStyle<geometry_msgs_Point> bottleStyle;
+  typedef yarp::os::idl::BareStyle<TickDuration> rosStyle;
+  typedef yarp::os::idl::BottleStyle<TickDuration> bottleStyle;
 
   // Give source text for class, ROS will need this
   yarp::os::ConstString getTypeText() {
-    return "# This contains the position of a point in free space\n\
-float64 x\n\
-float64 y\n\
-float64 z\n\
-";
+    return "";
   }
 
   // Name the class, ROS will need this
   yarp::os::Type getType() {
-    yarp::os::Type typ = yarp::os::Type::byName("geometry_msgs/Point","geometry_msgs/Point");
-    typ.addProperty("md5sum",yarp::os::Value("4a842b65f413084dc2b10fb484ea7f17"));
+    yarp::os::Type typ = yarp::os::Type::byName("TickDuration","TickDuration");
+    typ.addProperty("md5sum",yarp::os::Value("4f8dc7710c22b42c7b09295dcda33fa0"));
     typ.addProperty("message_definition",yarp::os::Value(getTypeText()));
     return typ;
   }

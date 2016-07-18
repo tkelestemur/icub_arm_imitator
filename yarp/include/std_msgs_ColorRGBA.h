@@ -1,17 +1,15 @@
 // This is an automatically generated file.
-// Generated from this geometry_msgs_Quaternion.msg definition:
-//   # This represents an orientation in free space in quaternion form.
-//   
-//   float64 x
-//   float64 y
-//   float64 z
-//   float64 w
+// Generated from this std_msgs_ColorRGBA.msg definition:
+//   float32 r
+//   float32 g
+//   float32 b
+//   float32 a
 //   
 // Instances of this class can be read and written with YARP ports,
 // using a ROS-compatible format.
 
-#ifndef YARPMSG_TYPE_geometry_msgs_Quaternion
-#define YARPMSG_TYPE_geometry_msgs_Quaternion
+#ifndef YARPMSG_TYPE_std_msgs_ColorRGBA
+#define YARPMSG_TYPE_std_msgs_ColorRGBA
 
 #include <string>
 #include <vector>
@@ -20,29 +18,32 @@
 #include "TickTime.h"
 #include "std_msgs_Header.h"
 #include "geometry_msgs_Point.h"
+#include "geometry_msgs_Quaternion.h"
+#include "geometry_msgs_Pose.h"
+#include "geometry_msgs_Vector3.h"
 
-class geometry_msgs_Quaternion : public yarp::os::idl::WirePortable {
+class std_msgs_ColorRGBA : public yarp::os::idl::WirePortable {
 public:
-  yarp::os::NetFloat64 x;
-  yarp::os::NetFloat64 y;
-  yarp::os::NetFloat64 z;
-  yarp::os::NetFloat64 w;
+  yarp::os::NetFloat32 r;
+  yarp::os::NetFloat32 g;
+  yarp::os::NetFloat32 b;
+  yarp::os::NetFloat32 a;
 
-  geometry_msgs_Quaternion() {
+  std_msgs_ColorRGBA() {
   }
 
   bool readBare(yarp::os::ConnectionReader& connection) {
-    // *** x ***
-    x = connection.expectDouble();
+    // *** r ***
+    if (!connection.expectBlock((char*)&r,4)) return false;
 
-    // *** y ***
-    y = connection.expectDouble();
+    // *** g ***
+    if (!connection.expectBlock((char*)&g,4)) return false;
 
-    // *** z ***
-    z = connection.expectDouble();
+    // *** b ***
+    if (!connection.expectBlock((char*)&b,4)) return false;
 
-    // *** w ***
-    w = connection.expectDouble();
+    // *** a ***
+    if (!connection.expectBlock((char*)&a,4)) return false;
     return !connection.isError();
   }
 
@@ -51,17 +52,17 @@ public:
     yarp::os::idl::WireReader reader(connection);
     if (!reader.readListHeader(4)) return false;
 
-    // *** x ***
-    x = reader.expectDouble();
+    // *** r ***
+    r = reader.expectDouble();
 
-    // *** y ***
-    y = reader.expectDouble();
+    // *** g ***
+    g = reader.expectDouble();
 
-    // *** z ***
-    z = reader.expectDouble();
+    // *** b ***
+    b = reader.expectDouble();
 
-    // *** w ***
-    w = reader.expectDouble();
+    // *** a ***
+    a = reader.expectDouble();
     return !connection.isError();
   }
 
@@ -72,17 +73,17 @@ public:
   }
 
   bool writeBare(yarp::os::ConnectionWriter& connection) {
-    // *** x ***
-    connection.appendDouble(x);
+    // *** r ***
+    connection.appendBlock((char*)&r,4);
 
-    // *** y ***
-    connection.appendDouble(y);
+    // *** g ***
+    connection.appendBlock((char*)&g,4);
 
-    // *** z ***
-    connection.appendDouble(z);
+    // *** b ***
+    connection.appendBlock((char*)&b,4);
 
-    // *** w ***
-    connection.appendDouble(w);
+    // *** a ***
+    connection.appendBlock((char*)&a,4);
     return !connection.isError();
   }
 
@@ -90,21 +91,21 @@ public:
     connection.appendInt(BOTTLE_TAG_LIST);
     connection.appendInt(4);
 
-    // *** x ***
+    // *** r ***
     connection.appendInt(BOTTLE_TAG_DOUBLE);
-    connection.appendDouble((double)x);
+    connection.appendDouble((double)r);
 
-    // *** y ***
+    // *** g ***
     connection.appendInt(BOTTLE_TAG_DOUBLE);
-    connection.appendDouble((double)y);
+    connection.appendDouble((double)g);
 
-    // *** z ***
+    // *** b ***
     connection.appendInt(BOTTLE_TAG_DOUBLE);
-    connection.appendDouble((double)z);
+    connection.appendDouble((double)b);
 
-    // *** w ***
+    // *** a ***
     connection.appendInt(BOTTLE_TAG_DOUBLE);
-    connection.appendDouble((double)w);
+    connection.appendDouble((double)a);
     connection.convertTextMode();
     return !connection.isError();
   }
@@ -117,24 +118,22 @@ public:
 
   // This class will serialize ROS style or YARP style depending on protocol.
   // If you need to force a serialization style, use one of these classes:
-  typedef yarp::os::idl::BareStyle<geometry_msgs_Quaternion> rosStyle;
-  typedef yarp::os::idl::BottleStyle<geometry_msgs_Quaternion> bottleStyle;
+  typedef yarp::os::idl::BareStyle<std_msgs_ColorRGBA> rosStyle;
+  typedef yarp::os::idl::BottleStyle<std_msgs_ColorRGBA> bottleStyle;
 
   // Give source text for class, ROS will need this
   yarp::os::ConstString getTypeText() {
-    return "# This represents an orientation in free space in quaternion form.\n\
-\n\
-float64 x\n\
-float64 y\n\
-float64 z\n\
-float64 w\n\
+    return "float32 r\n\
+float32 g\n\
+float32 b\n\
+float32 a\n\
 ";
   }
 
   // Name the class, ROS will need this
   yarp::os::Type getType() {
-    yarp::os::Type typ = yarp::os::Type::byName("geometry_msgs/Quaternion","geometry_msgs/Quaternion");
-    typ.addProperty("md5sum",yarp::os::Value("a779879fadf0160734f906b8c19c7004"));
+    yarp::os::Type typ = yarp::os::Type::byName("std_msgs/ColorRGBA","std_msgs/ColorRGBA");
+    typ.addProperty("md5sum",yarp::os::Value("a29a96539573343b1310c73607334b00"));
     typ.addProperty("message_definition",yarp::os::Value(getTypeText()));
     return typ;
   }

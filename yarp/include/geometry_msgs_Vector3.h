@@ -1,15 +1,20 @@
 // This is an automatically generated file.
-// Generated from this geometry_msgs_Point.msg definition:
-//   # This contains the position of a point in free space
+// Generated from this geometry_msgs_Vector3.msg definition:
+//   # This represents a vector in free space. 
+//   # It is only meant to represent a direction. Therefore, it does not
+//   # make sense to apply a translation to it (e.g., when applying a 
+//   # generic rigid transformation to a Vector3, tf2 will only apply the
+//   # rotation). If you want your data to be translatable too, use the
+//   # geometry_msgs/Point message instead.
+//   
 //   float64 x
 //   float64 y
 //   float64 z
-//   
 // Instances of this class can be read and written with YARP ports,
 // using a ROS-compatible format.
 
-#ifndef YARPMSG_TYPE_geometry_msgs_Point
-#define YARPMSG_TYPE_geometry_msgs_Point
+#ifndef YARPMSG_TYPE_geometry_msgs_Vector3
+#define YARPMSG_TYPE_geometry_msgs_Vector3
 
 #include <string>
 #include <vector>
@@ -17,14 +22,17 @@
 #include <yarp/os/idl/WireTypes.h>
 #include "TickTime.h"
 #include "std_msgs_Header.h"
+#include "geometry_msgs_Point.h"
+#include "geometry_msgs_Quaternion.h"
+#include "geometry_msgs_Pose.h"
 
-class geometry_msgs_Point : public yarp::os::idl::WirePortable {
+class geometry_msgs_Vector3 : public yarp::os::idl::WirePortable {
 public:
   yarp::os::NetFloat64 x;
   yarp::os::NetFloat64 y;
   yarp::os::NetFloat64 z;
 
-  geometry_msgs_Point() {
+  geometry_msgs_Vector3() {
   }
 
   bool readBare(yarp::os::ConnectionReader& connection) {
@@ -100,21 +108,26 @@ public:
 
   // This class will serialize ROS style or YARP style depending on protocol.
   // If you need to force a serialization style, use one of these classes:
-  typedef yarp::os::idl::BareStyle<geometry_msgs_Point> rosStyle;
-  typedef yarp::os::idl::BottleStyle<geometry_msgs_Point> bottleStyle;
+  typedef yarp::os::idl::BareStyle<geometry_msgs_Vector3> rosStyle;
+  typedef yarp::os::idl::BottleStyle<geometry_msgs_Vector3> bottleStyle;
 
   // Give source text for class, ROS will need this
   yarp::os::ConstString getTypeText() {
-    return "# This contains the position of a point in free space\n\
+    return "# This represents a vector in free space. \n\
+# It is only meant to represent a direction. Therefore, it does not\n\
+# make sense to apply a translation to it (e.g., when applying a \n\
+# generic rigid transformation to a Vector3, tf2 will only apply the\n\
+# rotation). If you want your data to be translatable too, use the\n\
+# geometry_msgs/Point message instead.\n\
+\n\
 float64 x\n\
 float64 y\n\
-float64 z\n\
-";
+float64 z";
   }
 
   // Name the class, ROS will need this
   yarp::os::Type getType() {
-    yarp::os::Type typ = yarp::os::Type::byName("geometry_msgs/Point","geometry_msgs/Point");
+    yarp::os::Type typ = yarp::os::Type::byName("geometry_msgs/Vector3","geometry_msgs/Vector3");
     typ.addProperty("md5sum",yarp::os::Value("4a842b65f413084dc2b10fb484ea7f17"));
     typ.addProperty("message_definition",yarp::os::Value(getTypeText()));
     return typ;
