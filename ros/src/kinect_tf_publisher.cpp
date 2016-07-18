@@ -18,10 +18,11 @@ int main(int argc, char** argv)
 
   while( ros::ok() )
     {
-      T0_kinect.setRotation(tf::Quaternion(tf::Vector3(1.0, 0.0, 0.0), M_PI*0.5)*tf::Quaternion(tf::Vector3(0.0, 1.0, 0.0), M_PI*0.5)*tf::Quaternion(tf::Vector3(1, 0.0, 0.0), M_PI*0.10));
-      // T0_kinect.setRotation( tf::Quaternion(tf::Vector3(1.0, 1.0, 0.0), M_PI*0.5) );
-      T0_kinect.setOrigin(tf::Vector3(-0.10, 0, 1.90));
-      br.sendTransform(tf::StampedTransform(T0_kinect, ros::Time::now(), "world", "kinect_sensor"));
+      // T0_kinect.setRotation(tf::Quaternion(tf::Vector3(1.0, 0.0, 0.0), M_PI*0.5) * tf::Quaternion(tf::Vector3(0.0, 1.0, 0.0), M_PI*0.5)*tf::Quaternion(tf::Vector3(1, 0.0, 0.0), M_PI*0.10));
+      T0_kinect.setRotation( tf::Quaternion(tf::Vector3(-1.0, 0.0, 0.0), M_PI*0.5) * tf::Quaternion(tf::Vector3(0.0, 1.0, 0.0), M_PI*0.5));
+      T0_kinect.setOrigin(tf::Vector3(0, 0, 1));
+      // br.sendTransform(tf::StampedTransform(T0_kinect, ros::Time::now(), "world", "kinect_sensor"));
+      br.sendTransform(tf::StampedTransform(T0_kinect, ros::Time::now(), "world", "kinect2_link"));
       sleeper.sleep();
     }
 
